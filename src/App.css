@@ -1,0 +1,215 @@
+.app-shell {
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.hero-panel {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.12);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.82rem;
+}
+
+.hero-panel h1 {
+  margin: 0 0 18px;
+  font-size: clamp(2rem, 3vw, 3.2rem);
+  line-height: 1.05;
+}
+
+.lead {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 760px;
+  line-height: 1.7;
+}
+
+.content-panel {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.panel-block {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: 28px;
+}
+
+.panel-block h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.add-word-form {
+  display: grid;
+  gap: 16px;
+}
+
+.add-word-form label {
+  display: grid;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+}
+
+.add-word-form input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.add-word-form input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.add-word-form button {
+  border: none;
+  border-radius: 16px;
+  padding: 14px 18px;
+  font-size: 1rem;
+  color: #111827;
+  background: #a855f7;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.add-word-form button:hover {
+  transform: translateY(-1px);
+  background: #9333ea;
+}
+
+.cards-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.empty-state {
+  color: rgba(255, 255, 255, 0.74);
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.flash-card {
+  position: relative;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flash-card-inner {
+  min-height: 180px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 26px;
+  display: grid;
+  place-items: center;
+  transition: transform 0.4s ease;
+  transform-style: preserve-3d;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.16);
+}
+
+.flash-card.flipped .flash-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flash-card-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  backface-visibility: hidden;
+}
+
+.flash-card-front,
+.flash-card-back {
+  border-radius: 24px;
+}
+
+.flash-card-back {
+  transform: rotateY(180deg);
+}
+
+.card-label {
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.card-text {
+  margin: 0;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  color: #fff;
+  text-align: center;
+  word-break: break-word;
+}
+
+.delete-button {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.delete-button:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+@media (max-width: 840px) {
+  .content-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .app-shell {
+    padding: 18px;
+  }
+
+  .hero-panel,
+  .panel-block {
+    padding: 22px;
+  }
+
+  .flash-card-inner {
+    min-height: 170px;
+    padding: 20px;
+  }
+}
